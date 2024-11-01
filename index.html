@@ -1,0 +1,700 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Gameplay</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+@font-face{
+        font-family:'Pixel';  /* NGƯỜI CODE : NGUYỄN ĐÌNH CƯỜNG QUỐC B24DCGA124*/
+        src:url("FVF Fernando 08.ttf") format("truetype");
+        font-weight:nomal;
+        font-size:nomal;
+      }
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1278f238-6219-803a-8ec0-f3e61935ebb4" class="page mono"><header><div class="page-header-icon undefined"><img class="icon" src="terraria-boulder-mount-concept-v0-824igcpq1eba1.gif"/></div><h1 class="page-title" style="font-family: 'Pixel';">Gameplay</h1><p class="page-description"></p></header><div class="page-body"><hr id="1278f238-6219-80fb-9d1d-f3dbf73bcdf7"/><p id="cc4caeab-57a2-414f-a66d-bc0978a8a12b" class=""><strong>Terraria</strong> là một trò chơi hành động phiêu lưu với yếu tố sinh tồn và sandbox, cho phép người chơi thỏa sức khám phá, chế tạo, xây dựng và chiến đấu trong một thế giới 2D ngẫu nhiên. Gameplay của Terraria bao gồm nhiều hoạt động phong phú, tạo nên trải nghiệm đa dạng và không giới hạn cho người chơi. </p><hr id="3856de20-7140-493d-9a09-1543ee494a05"/><ul id="4739557a-27a8-45e4-922a-1dee921135a3" class="toggle"><li><details open=""><summary><strong>Khám phá thế giới mở </strong></summary><div id="a7160630-75fb-494a-bc1c-eedecd35f5ad" class="column-list"><div id="d7eb6351-18c4-45b9-816c-074c241821d4" style="width:50%" class="column"><ul id="fab1e4ff-7db3-47c7-ab32-79db95efcf18" class="bulleted-list"><li style="list-style-type:disc"><strong>Thế giới ngẫu nhiên</strong>: Mỗi lần bắt đầu một trò chơi mới, người chơi được đưa vào một thế giới 2D ngẫu nhiên. Thế giới này bao gồm các &quot;biome&quot; khác nhau như rừng, hang động, biển, sa mạc, khu vực tà ác (Corruption/Crimson), địa ngục (Underworld), và vùng Hallow.</li></ul><p id="f7fa081f-c8af-454a-b8c2-203facb97fa3" class="">
+</p></div><div id="0c270998-2266-4c35-862e-b289c49d14ff" style="width:50%" class="column"><figure id="4f9f0045-0f1d-47c5-8241-4777418e15fd" class="image"><a href="image.png"><img style="width:336px" src="image.png"/></a></figure></div></div><ul id="93ba0c88-7a45-4ed3-aec9-fd30ae5dc2e9" class="bulleted-list"><li style="list-style-type:disc"><strong>Hệ thống biome đa dạng</strong>: Mỗi biome có đặc trưng riêng về kẻ thù, tài nguyên, và cảnh quan. Người chơi cần khám phá các khu vực này để thu thập tài nguyên, đánh bại quái vật và tìm các rương kho báu chứa vật phẩm quý giá. Ví dụ, rừng là nơi bạn bắt đầu với gỗ, nhưng các khoáng sản giá trị hơn như quặng Hellstone chỉ có thể tìm thấy ở Underworld.</li></ul><figure id="8e96f012-da6e-44f7-9940-ba6569f6bcce" class="image"><a href="image_2024-10-29_222742120.png"><img style="width:672px" src="image_2024-10-29_222742120.png"/></a></figure><p id="24942f97-2793-4e3d-b257-cb4cdbfd92a5" class="">
+</p><ul id="f6ad626d-2edd-4a7c-90ca-411f0438cc87" class="bulleted-list"><li style="list-style-type:disc"><strong>Hang động và mỏ</strong>: Người chơi sẽ phải đào sâu dưới lòng đất để khám phá hệ thống hang động rộng lớn và tìm kiếm khoáng sản và kho báu. Khai thác mỏ và thám hiểm dưới lòng đất là một phần quan trọng của tiến trình phát triển.</li></ul><figure id="5ca13db8-e971-4ca8-89da-e652eb17aef5" class="image"><a href="image%201.png"><img style="width:679.984375px" src="image%201.png"/></a></figure></details></li></ul><ul id="2644ae0e-c9ec-4fe7-8ca0-68daf2bbca29" class="toggle"><li><details open=""><summary><strong>Sinh tồn và chiến đấu </strong></summary><div id="b5a94684-f221-4c73-922a-f4a5b1118967" class="column-list"><div id="8978494d-23fd-436a-b8e4-9c8711bc55c8" style="width:50%" class="column"><ul id="d8959acc-a03f-45a1-867e-87a14444b7d2" class="bulleted-list"><li style="list-style-type:disc"><strong>Thời gian ngày và đêm</strong>: Terraria có hệ thống chu kỳ ngày và đêm. Ban ngày, môi trường tương đối yên bình, người chơi có thể thu thập tài nguyên và xây dựng. Nhưng vào ban đêm, quái vật mạnh hơn như zombie và Demon Eyes xuất hiện nhiều hơn, đe dọa đến sinh tồn của người chơi.</li></ul></div><div id="9d940f47-a4fc-48f1-8194-0afaa35ab687" style="width:50%" class="column"><figure id="14a8d54e-afb4-4135-8148-fad77aece33f" class="image"><a href="image%202.png"><img style="width:288px" src="image%202.png"/></a></figure></div></div><div id="719b68c7-da09-4a86-a7cd-b6223a32cb00" class="column-list"><div id="0f111f99-9d31-4149-ad7d-45e7f6fc401c" style="width:37.5%" class="column"><figure id="88b6d198-11d3-4256-b89d-98a5dcae759c" class="image"><a href="image%203.png"><img style="width:240px" src="image%203.png"/></a></figure></div><div id="7171d6c8-217e-49ea-b23e-0ed41a450e3e" style="width:62.5%" class="column"><ul id="e59963c9-705d-4b4d-ba2c-c84f31769151" class="bulleted-list"><li style="list-style-type:disc"><strong>Quái vật và boss</strong>: Người chơi phải đối phó với nhiều loại quái vật trong quá trình khám phá và sinh tồn. Có các boss mạnh mẽ mà người chơi cần triệu hồi và đánh bại như Eye of Cthulhu, Skeletron, và Wall of Flesh. Đánh bại boss là một phần quan trọng để mở khóa các vật phẩm mạnh hơn và tiến triển trong trò chơi.</li></ul></div></div><p id="5abf896e-14dc-4b95-9076-f787103fa72e" class="">
+</p><ul id="c1db292f-f913-43b5-bd8f-9ef1ea7b7805" class="bulleted-list"><li style="list-style-type:disc"><strong>Cơ chế chiến đấu</strong>: Hệ thống chiến đấu của Terraria dựa trên hành động thời gian thực. Người chơi có thể sử dụng nhiều loại vũ khí như kiếm, cung, súng, và phép thuật để chiến đấu với kẻ thù. Vũ khí có thể được nâng cấp và cải tiến theo thời gian, từ những món cơ bản như kiếm gỗ đến những vũ khí mạnh như súng phun lửa hoặc kiếm laser<figure id="12ea6a3f-fb1b-4a22-a651-c033dce1b9da" class="image"><a href="image%204.png"><img style="width:680px" src="image%204.png"/></a></figure></li></ul><p id="d4716515-c7fc-4393-bc5e-d6c0e6f4d0aa" class="">
+</p><ul id="aa88639b-705d-45f1-82fa-56b66bd2c367" class="bulleted-list"><li style="list-style-type:disc"><strong>Nấu thuốc</strong>: Người chơi có thể chế tạo các loại thuốc từ nguyên liệu thu thập trong tự nhiên, giúp hồi máu, tăng sức mạnh tạm thời hoặc bảo vệ người chơi trong những tình huống nguy hiểm</li></ul><figure id="e093058c-b4cd-4128-9e31-fdb1d927e999" class="image"><a href="image_2024-10-30_204531586.png"><img style="width:679.984375px" src="image_2024-10-30_204531586.png"/></a></figure></details></li></ul><ul id="13605414-f630-46c4-ad9a-132021c30b0c" class="toggle"><li><details open=""><summary> <strong>Xây dựng và quản lý </strong></summary><ul id="0f9f18a9-caf2-4ffe-b5c8-619bbdcca604" class="bulleted-list"><li style="list-style-type:disc"><strong>Xây dựng cấu trúc</strong>: Người chơi có thể xây dựng nhà cửa và công trình theo ý thích bằng các khối vật liệu thu thập được từ môi trường. Xây dựng không chỉ phục vụ mục đích trang trí, mà còn là cách để bảo vệ người chơi trước quái vật và quản lý môi trường xung quanh.</li></ul><p id="68a46b95-d6a0-44ac-b068-1dc32898fd6a" class="">
+</p><ul id="293f586f-f345-4b6f-833c-d37a289e904c" class="bulleted-list"><li style="list-style-type:disc"><strong>Quản lý NPC (Non-Player Characters)</strong>: Khi người chơi xây dựng đủ số lượng phòng và đáp ứng các yêu cầu nhất định, các NPC sẽ xuất hiện và chuyển vào sống trong ngôi nhà của người chơi. Các NPC này có vai trò như cung cấp dịch vụ, bán hàng, hoặc cung cấp thông tin hữu ích cho người chơi. Ví dụ, Merchant bán vũ khí và vật phẩm, còn Nurse sẽ giúp hồi máu.</li></ul><p id="f6f9ce98-78fa-46dc-a373-0c97462d6328" class="">
+</p><ul id="406f74ec-5180-4968-85bf-03e4af01d2e0" class="bulleted-list"><li style="list-style-type:disc"><strong>Bẫy và phòng thủ</strong>: Người chơi có thể đặt bẫy để bảo vệ căn cứ khỏi các cuộc tấn công của quái vật và sử dụng các phương pháp phòng thủ như tháp canh và tường rào.</li></ul><p id="6c585780-560c-4e31-9c62-ef54561dea0a" class="">
+</p></details></li></ul><ul id="254841cc-6b16-4372-bce7-af0c2905afca" class="toggle"><li><details open=""><summary><strong>Tiến trình phát triển và hệ thống nhân vật </strong></summary><ul id="e7285748-7535-41cb-8371-102ff365b582" class="bulleted-list"><li style="list-style-type:disc"><strong>Nâng cấp máu và năng lượng</strong>: Người chơi có thể tìm kiếm các vật phẩm nâng cấp như Life Crystals và Mana Stars để tăng cường máu và năng lượng phép thuật. Điều này giúp người chơi trở nên mạnh mẽ hơn trong chiến đấu và sinh tồn.</li></ul><figure id="b50f410c-ada2-4482-9e6e-b8f815ccffab" class="image"><a href="image%205.png"><img style="width:624px" src="image%205.png"/></a></figure><p id="24263fee-3386-4393-98f5-102efee4c4dc" class="">
+</p><p id="ae734048-85b5-4a82-a094-8332bae3fd69" class="">
+</p><div id="be462b26-f771-47e1-abab-e0e6e38a64ed" class="column-list"><div id="740afa96-1ed3-434d-907c-6c03691d9992" style="width:50%" class="column"><ul id="bceaa2fd-10ac-4224-8a8b-627ab136251a" class="bulleted-list"><li style="list-style-type:disc"><strong>Trang bị và phụ kiện</strong>: Ngoài vũ khí và giáp, Terraria còn có một hệ thống phụ kiện, cho phép người chơi trang bị các vật phẩm bổ sung như giày tăng tốc độ, cánh để bay, hoặc vòng cổ giúp tăng sức mạnh. Những phụ kiện này cung cấp lợi ích đặc biệt và giúp tùy biến nhân vật.</li></ul></div><div id="394f1c6b-052e-4277-8717-05673f77c6e3" style="width:50%" class="column"><figure id="2babdc20-1599-4dfd-b020-2fda5b084f0f" class="image"><a href="image%206.png"><img style="width:132px" src="image%206.png"/></a></figure></div></div><ul id="19dafed9-15cb-410d-81e7-e8ee5f4891d2" class="bulleted-list"><li style="list-style-type:disc"><strong>Phép thuật và triệu hồi</strong>: Người chơi có thể sử dụng các phép thuật tấn công hoặc triệu hồi sinh vật để hỗ trợ chiến đấu. Phép thuật yêu cầu mana và mang lại lối chơi đa dạng, bao gồm cả tấn công từ xa, chữa lành, hoặc bảo vệ.</li></ul></details></li></ul><ul id="c4ad72c8-353e-46b6-b90b-2511689baec7" class="toggle"><li><details open=""><summary><strong>Sự kiện và thời tiết</strong></summary><ul id="eb58a1c4-8a74-4ddd-bd12-ce4eb7fab7ca" class="bulleted-list"><li style="list-style-type:disc"><strong>Sự kiện ngẫu nhiên</strong>: Terraria có các sự kiện đặc biệt xảy ra ngẫu nhiên, như Blood Moon (Mặt trăng máu), Goblin Invasion (Xâm lăng Goblin), hoặc Solar Eclipse (Nhật thực). Những sự kiện này làm tăng độ khó của trò chơi bằng cách đưa vào các quái vật đặc biệt và cơ hội nhận vật phẩm hiếm.</li></ul><ul id="816aa6c0-b565-4569-bcd5-a15db499acc2" class="bulleted-list"><li style="list-style-type:disc"><strong>Thời tiết</strong>: Terraria có hệ thống thời tiết như mưa, sét và bão tuyết, ảnh hưởng đến cách người chơi khám phá và chiến đấu. Ví dụ, mưa có thể gây trơn trượt và giảm tầm nhìn, còn bão tuyết sẽ làm xuất hiện các quái vật tuyết.</li></ul></details></li></ul><ul id="f4826b65-17e5-4f43-817f-444dbde49609" class="toggle"><li><details open=""><summary><strong>Chế độ Hardmode và Endgame</strong>   </summary><ul id="f1fde0ac-36aa-4881-aa1d-dbdbab068526" class="bulleted-list"><li style="list-style-type:disc"><strong>Chế độ Hardmode</strong>: Khi người chơi tiêu diệt boss Wall of Flesh, trò chơi chuyển sang chế độ Hardmode. Đây là giai đoạn khó khăn hơn, nơi quái vật và boss trở nên mạnh mẽ hơn, và người chơi có thể khai thác những tài nguyên hiếm hơn, tạo ra những trang bị mạnh nhất.</li></ul><ul id="244c3c83-7401-44cf-b9ec-2c9d7d14cc2f" class="bulleted-list"><li style="list-style-type:disc"><strong>Boss endgame</strong>: Những boss cuối như Moon Lord là thử thách lớn nhất trong trò chơi, yêu cầu sự chuẩn bị kỹ lưỡng về trang bị và kỹ năng để đánh bại. Sau khi hoàn thành các boss chính, người chơi có thể tiếp tục khám phá và nâng cấp hoặc thách thức các sự kiện khác nhau trong Hardmode.</li></ul></details></li></ul><ul id="55abf80d-4ffa-411c-990a-17b324f737ff" class="toggle"><li><details open=""><summary> <strong>Chế độ chơi nhiều người và PvP</strong>   </summary><ul id="d6c8f713-b036-4d0b-9361-045e3be8eb3d" class="bulleted-list"><li style="list-style-type:disc"><strong>Multiplayer</strong>: Terraria hỗ trợ chế độ nhiều người chơi, cho phép người chơi hợp tác với bạn bè hoặc cạnh tranh trong cùng một thế giới. Điều này tạo ra trải nghiệm hợp tác trong việc khám phá và chiến đấu với các boss mạnh mẽ.</li></ul><ul id="a927fdc1-ba71-49bf-a132-559043209081" class="bulleted-list"><li style="list-style-type:disc"><strong>PvP (Player vs Player)</strong>: Terraria cung cấp chế độ PvP, nơi người chơi có thể chiến đấu với nhau. Điều này bổ sung thêm sự cạnh tranh và thử thách giữa người chơi, đặc biệt trong các trận đấu xây dựng chiến thuật.</li></ul></details></li></ul><p id="cf5c930b-8ae4-4f25-9434-13caa8d663a6" class="">
+</p><p id="d99a1823-546e-4095-945d-5e3227f99d81" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
